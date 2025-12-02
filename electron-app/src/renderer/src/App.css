@@ -1,0 +1,6 @@
+/* Minimal app styles for VisuaLens */
+nav .active {
+  border-bottom: 2px solid #ffd700;
+}
+.result-item { display: inline-block; margin: 8px; }
+.result-item img { border-radius: 4px; display: block; }

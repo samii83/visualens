@@ -3,6 +3,7 @@
 Service for interacting with the Hugging Face Inference API.
 """
 import httpx
+import random
 
 async def query_huggingface_api(
     model_url: str, api_key: str, data=None, json_payload=None
@@ -10,6 +11,16 @@ async def query_huggingface_api(
     """
     Generic function to query the Hugging Face API.
     """
+    # When API key is not provided, return a small mock response for development/demo mode
+    if not api_key:
+        # Return a mock caption or embedding depending on payload
+        if data is not None:
+            # image caption mock
+            return {"generated_text": "A demo caption describing the sample image."}
+        if json_payload is not None:
+            # embedding mock: a deterministic fixed-size vector for demonstration
+            return [ [random.random() for _ in range(384)] ]
+
     headers = {"Authorization": f"Bearer {api_key}"}
     api_url = f"https://api-inference.huggingface.co/models/{model_url}"
 

@@ -43,6 +43,8 @@ uvicorn app.main:app --reload
 ```
 The backend server will be running at `http://127.0.0.1:8000`.
 
+Note: If you do not set `HUGGING_FACE_API_KEY` in `.env` the backend will run in a light-weight "demo mode" and return mock captions and embeddings. This is helpful for UI development without HF credentials.
+
 ### 2. Frontend Setup
 
 ```bash

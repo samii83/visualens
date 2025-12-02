@@ -5,6 +5,8 @@
   "main": "dist-electron/main.js",
   "scripts": {
     "dev": "vite",
+    "dev:electron": "electron .",
+    "dev:backend": "echo 'Start backend with: cd ../backend && uvicorn app.main:app --reload --host 127.0.0.1 --port 8000'",
     "build": "vite build && electron-builder",
     "preview": "vite preview"
   },
